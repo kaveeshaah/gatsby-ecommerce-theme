@@ -12,7 +12,7 @@ import { toOptimizedImage } from '../../helpers/general';
 
 const CartItem = (props) => {
   const [showQuickView, setShowQuickView] = useState(false);
-  const { image, alt, color, name, size, price } = props;
+  const { image, alt, color, name, size, price, onRemove } = props;
 
   return (
     <div className={styles.root}>
@@ -44,7 +44,7 @@ const CartItem = (props) => {
         <CurrencyFormatter amount={price} appendZero />
       </div>
       <div className={styles.removeContainer}>
-        <RemoveItem />
+        <RemoveItem onClick={onRemove} />
       </div>
       <Drawer visible={showQuickView} close={() => setShowQuickView(false)}>
         <QuickView close={() => setShowQuickView(false)} />
